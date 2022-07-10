@@ -1,0 +1,13 @@
+version: "3"
+services:
+  code:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    command: code-server serve-local --host 0.0.0.0 --port 8000 --accept-server-license-terms
+    ports:
+      - 8000:8000
+    volumes:
+      - ./project:/workspace
+      -  ./app:/usr/lib/code-server
